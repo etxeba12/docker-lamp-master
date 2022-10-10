@@ -28,7 +28,7 @@
   $_SESSION['izen_abizenak'] = $izen_abizenak;
   $_SESSION['nan'] = $nan;
   $_SESSION['telefonoa'] = $telefonoa;
-  $_SESSION['jaiotzeData'] = $jaiotzeData;
+  $_SESSION['jaiotzeData'] = $newDate;
   $_SESSION['email'] = $email;
   $_SESSION['pasahitza'] = $pasahitza;
   
