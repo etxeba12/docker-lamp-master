@@ -17,7 +17,7 @@
             <h4 id="erabiltzaile">Erabiltzailea: <?php echo $_SESSION['izen_abizenak'] ?></h4>
             <img src="imagenes/menu.svg" alt="" class="menu">
             <nav class="nabegazio-menua">
-              <a href="webOrrialde2.php">DENDA</a>
+              <a href="webOrrialde2.php">JOKOEN FOROA</a>
               <a href="nireJokoak.php">NIRE PRODUKTUAK</a>
               <a href="datuakAldatu.php">AJUSTEAK</a> 
             </nav>
@@ -45,7 +45,8 @@
                   <input class="botoia" type="radio" value='.$row['id'].' name="id"">
                   <h2>'.$row['izena'].'</h2>
                   <img src="'.$row['irudia'].'"width="100" height="100"/>
-                  <h3>'.$row['prezioa'].'€</h3>
+                  <h3>Balorazioa: '.$row['Balorazioa'].'</h3>
+                  <h4>'.$row['prezioa'].'€</h4>
                 </div>';
         }   
         echo'</div> <br> <input class="botoia" type="button" value="Ezabatu" onclick="datuakbidali()"> 

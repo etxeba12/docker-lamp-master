@@ -25,12 +25,14 @@
   $newDate = date("d/m/Y", $timestamp );
   $email = $row["email"];
   $pasahitza = $row["pasahitza"];
+  $balorazioa = $row["Balorazioa"];
   $_SESSION['izen_abizenak'] = $izen_abizenak;
   $_SESSION['nan'] = $nan;
   $_SESSION['telefonoa'] = $telefonoa;
   $_SESSION['jaiotzeData'] = $newDate;
   $_SESSION['email'] = $email;
   $_SESSION['pasahitza'] = $pasahitza;
+  $_SESSION['balorazioa'] = $balorazioa;
   
   
   if (is_null($izen_abizenak) ) {
