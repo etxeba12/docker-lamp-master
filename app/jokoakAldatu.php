@@ -13,12 +13,11 @@
     </script>
     <header class="header" id="hasiera">
             <br>
-            <h1>JOKOEN FOROA </h1>
+            <h1>JOKOEN ALDAKETA </h1>
             <h4 id="erabiltzaile">Erabiltzailea: <?php echo $_SESSION['izen_abizenak'] ?></h4>
             <img src="imagenes/menu.svg" alt="" class="menu">
             <nav class="nabegazio-menua">
               <a href="webOrrialde2.php">JOKOEN FOROA</a>
-              <a href="jokoakAldatu.php">JOKOAK ALDATU</a>
               <a href="nireJokoak.php">NIRE PRODUKTUAK</a>
               <a href="datuakAldatu.php">AJUSTEAK</a> 
             </nav>
@@ -39,7 +38,7 @@
           die("Database connection failed: " . $conn->connect_error);
         }
         $result= $conn->query("SELECT * FROM `jokoak`");
-        echo '<form action="php/nireJokoak.php" method="post" style="text-align:center" name="datuakbidaliformulario">';
+        echo '<form action="php/jokoakAldatu.php" method="post" style="text-align:center" name="datuakbidaliformulario">';
         echo '<div class="produktuKatalogoa">';
         while($row = mysqli_fetch_array($result)){
           echo' <div class="produktua">
@@ -50,7 +49,7 @@
                   <h4>'.$row['prezioa'].'€</h4>
                 </div>';
         }   
-        echo'</div> <br> <input class="botoia" type="button" value="GORDE" onclick="datuakbidali()"> 
+        echo'</div> <br> <input class="botoia" type="button" value="ALDATU" onclick="datuakbidali()"> 
         </form>';       
         mysqli_close($conn);
         

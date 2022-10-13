@@ -18,7 +18,7 @@
             <img src="imagenes/menu.svg" alt="" class="menu">
             <nav class="nabegazio-menua">
               <a href="webOrrialde2.php">JOKOEN FOROA</a>
-              <a href="nireJokoak.php">NIRE PRODUKTUAK</a>
+              <a href="jokoakAldatu.php">JOKOAK ALDATU</a>
               <a href="datuakAldatu.php">AJUSTEAK</a> 
             </nav>
     </header>
