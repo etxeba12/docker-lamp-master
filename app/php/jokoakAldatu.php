@@ -23,7 +23,7 @@
 
   echo'
       <script> 
-          window.alert("erosketa ondo egin da");
+          window.alert("aldaketak ondo egin da");
           window.location = "../webOrrialde2.php";
       </script>
   ';
