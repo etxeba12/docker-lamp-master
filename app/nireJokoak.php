@@ -37,7 +37,8 @@
         if ($conn->connect_error) {
           die("Database connection failed: " . $conn->connect_error);
         }
-        $result= $conn->query("SELECT irudia,prezioa,izena,id FROM `erosketa`,`jokoak` WHERE `erabiltzaileNan` = '78995188D' AND `jokoId` = `id`");
+        $nan = $_SESSION['nan'];
+        $result= $conn->query("SELECT irudia,prezioa,izena,id FROM `erosketa`,`jokoak` WHERE `erabiltzaileNan` = '$nan' AND `jokoId` = `id`");
         echo '<form action="php/ezabatuJokoa.php" method="post" style="text-align:center" name="datuakbidaliformulario">';
         echo '<div class="produktuKatalogoa">';
         while($row = mysqli_fetch_array($result)){

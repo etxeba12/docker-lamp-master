@@ -38,7 +38,7 @@
           die("Database connection failed: " . $conn->connect_error);
         }
         $result= $conn->query("SELECT * FROM `jokoak`");
-        echo '<form action="php/jokoakAldatu.php" method="post" style="text-align:center" name="datuakbidaliformulario">';
+        echo '<form action="jokoInformazioa.php" method="post" style="text-align:center" name="datuakbidaliformulario">';
         echo '<div class="produktuKatalogoa">';
         while($row = mysqli_fetch_array($result)){
           echo' <div class="produktua">
@@ -46,7 +46,7 @@
                   <h2>'.$row['izena'].'</h2>
                   <img src="'.$row['irudia'].'"width="100" height="100"/>
                   <h3>Balorazioa: '.$row['Balorazioa'].'</h3>
-                  <h4>'.$row['prezioa'].'€</h4>
+                  <h4 name="prezioa">'.$row['prezioa'].'€</h4>
                 </div>';
         }   
         echo'</div> <br> <input class="botoia" type="button" value="ALDATU" onclick="datuakbidali()"> 

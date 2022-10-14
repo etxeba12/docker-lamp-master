@@ -12,7 +12,8 @@
   }
   
   $id = $_POST['id'];
-  $result= "DELETE FROM `erosketa` WHERE `jokoId` = '$id'";
+  $nan = $_SESSION['nan'];
+  $result= "DELETE FROM `erosketa` WHERE `jokoId` = '$id' AND `erabiltzaileNan` = '$nan'";
   $ejecutar = mysqli_query($conn,$result);
   
   
