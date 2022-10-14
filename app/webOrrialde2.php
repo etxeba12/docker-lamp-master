@@ -4,7 +4,7 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Foroa</title>
     <link rel='stylesheet' href='CSS/webOrrialde.css' type="text/css">
     <script type="text/javascript">
       function datuakbidali(){
