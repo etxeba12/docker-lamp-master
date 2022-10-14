@@ -11,10 +11,13 @@
     die("Database connection failed: " . $conn->connect_error);
   }
   
-  
-  $nan = $_SESSION['nan'];
-  $id = $_POST['id'];
-  $result= "INSERT INTO `erosketa`(`erabiltzaileNan`,`jokoId`) VALUES ('$nan','$id')";
+  $id=$_POST['id'];
+  $izena = $_POST['izenJokoa'];
+  $balorazioa = $_POST['balorazioa'];
+  $prezioa = $_POST['prezioa'];
+  $adina = $_POST['adinminimoa'];
+  $deskrib = $_POST['deskribapena'];
+  $result= "UPDATE `jokoak` SET `izena`='$izena',`prezioa`='$prezioa',`adin_minimoa`='$adina',`deskribapena`='$deskrib',`Balorazioa`='$balorazioa' WHERE `id`='$id'";
   $ejecutar = mysqli_query($conn,$result);
 
 
