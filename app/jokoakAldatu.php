@@ -20,6 +20,7 @@
               <a href="webOrrialde2.php">JOKOEN FOROA</a>
               <a href="nireJokoak.php">NIRE PRODUKTUAK</a>
               <a href="datuakAldatu.php">AJUSTEAK</a> 
+              <a href="php/saioaitxi.php">SAIOA ITXI</a>
             </nav>
     </header>
     <br>

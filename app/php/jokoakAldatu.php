@@ -14,6 +14,9 @@
   $id=$_POST['id'];
   $izena = $_POST['izenJokoa'];
   $balorazioa = $_POST['balorazioa'];
+  if($balorazioa>10){
+    $balorazioa = 10;
+  }
   $prezioa = $_POST['prezioa'];
   $adina = $_POST['adinminimoa'];
   $deskrib = $_POST['deskribapena'];
@@ -23,7 +26,7 @@
 
   echo'
       <script> 
-          window.alert("aldaketak ondo egin da");
+          window.alert("aldaketak ondo egin dira");
           window.location = "../webOrrialde2.php";
       </script>
   ';
