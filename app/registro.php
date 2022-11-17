@@ -10,7 +10,7 @@
           document.formularioregistro.submit();
         }else{
           window.alert("datuak txarto sartu dituzu");
-          window.location="registro.html";
+          window.location="registro.php";
         }
       }
       function izenaEgiaztatu(){
@@ -66,20 +66,24 @@
     </script>
   </head>
   <body>
-    <div class="laukia">
-      <form action="php/registro.php" method="post" style="text-align:center" name="formularioregistro">
-        <div class="erregistroa"><h1>Erregistroa</h1></div>
-          <input class="bete" type="text" placeholder='Izen abizenak' name="izen_abizenak">
-          <input class="bete" type="text" placeholder='NAN' name="nan">
-          <input class="bete" type="text" placeholder='Telefonoa' name="telefonoa"> <br>
-          <input class="bete" type="date" placeholder='Jaiotze_data' name="jaiotze_data"><br>
-          <input class="bete" type="text" placeholder="Email" name="email">
-          <input class="bete" type="password" placeholder='Pasahitza' name="pasahitza"> <br>
-          <input class="botoia" type="button" value="Gorde" onclick="datuakEgiaztatu()"> 
-          <input class="botoia" type="reset" value="Ezabatu">
-          <p><a  href="index.html">Jadanik erregistratuta zaude?</a></p>
-      </div>
-    </form>
-  </div> 
+    <?php session_start();
+     $_SESSION['token'] = bin2hex(random_bytes(24));
+      echo '<div class="laukia">
+        <form action="php/registro.php" method="post" style="text-align:center" name="formularioregistro">
+          <div class="erregistroa"><h1>Erregistroa</h1></div>
+            <input type="hidden" name="token" value="'$_SESSION['token']'" />
+            <input class="bete" type="text" placeholder="Izen abizenak" name="izen_abizenak">
+            <input class="bete" type="text" placeholder="NAN" name="nan">
+            <input class="bete" type="text" placeholder="Telefonoa" name="telefonoa"> <br>
+            <input class="bete" type="date" placeholder="Jaiotze_data" name="jaiotze_data"><br>
+            <input class="bete" type="text" placeholder="Email" name="email">
+            <input class="bete" type="password" placeholder="Pasahitza" name="pasahitza"> <br>
+            <input class="botoia" type="button" value="Gorde" onclick="datuakEgiaztatu()"> 
+            <input class="botoia" type="reset" value="Ezabatu">
+            <p><a  href="index.html">Jadanik erregistratuta zaude?</a></p>
+        </div>
+      </form>
+    </div> '
+    ?>
   </body>
 </html>

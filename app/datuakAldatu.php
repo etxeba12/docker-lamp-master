@@ -1,4 +1,7 @@
 <?php session_start();
+  if($_SESSION['saioa']!=1){
+    header("Location:http://localhost:81/index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="">

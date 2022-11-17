@@ -11,6 +11,7 @@
       }
       ob_end_flush();
 
+    //parametroak lortu
     $izen_abizenak=$_POST['izen_abizenak'];
     $nan = $_POST['nan'];
     $telefonoa = $_POST['telefonoa'];
@@ -18,20 +19,31 @@
     $jaiotze_data = $_POST['jaiotze_data'];
     $email= $_POST['email'];
     
-    $query = "INSERT INTO `erabiltzaileak`(`izen_abizenak`,`nan`,`telefonoa`,`email`,`jaiotze_data`,`pasahitza`) 
-            VALUES ('$izen_abizenak','$nan','$telefonoa', '$email','$jaiotze_data','$pasahitza')";
+    if (!hash_equals($_SESSION['token'], $_POST['token'])) {
+      //prepare and bind
+      $stmt = $conn->prepare("INSERT INTO erabiltzaileak(izen_abizenak,nan,telefonoa,email,jaiotze_data,pasahitza) VALUES (?,?,?,?,?,?)");
+      $stmt -> bind_param("ssisss",$izen_abizenak,$nan,$telefonoa,$email,$jaiotze_data,$pasahitza);
 
-    $ejecutar = mysqli_query($conn,$query);
+      //execute
+      $ejecutar = $stmt->execute();
 
-    if ($ejecutar) {
-        echo'
-            <script> 
-                window.location = "../index.html";
-            </script>
-        ';
-      } else{
-        printf("Errormessage: %s\n", $conn->error);
-      }
+      if ($ejecutar) {
+          echo'
+              <script> 
+                  window.location = "../index.php";
+              </script>
+          ';
+        } else{
+          printf("Errormessage: %s\n", $conn->error);
+        }
+    } else {
+      echo'
+      <script> 
+          window.location = "../registro.php";
+      </script>
+      ';
+    }
+    
     
     mysqli_close($conn);
 ?>

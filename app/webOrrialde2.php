@@ -1,10 +1,14 @@
 <?php session_start();
+  if($_SESSION['saioa']!=1){
+    header("Location:http://localhost:81/index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="">
   <head>
     <meta charset="utf-8">
     <title>Foroa</title>
+    <meta http-equil="Content-Security-Policy" content=" 'self'  'unsafe-inline'">
     <link rel='stylesheet' href='CSS/webOrrialde.css' type="text/css">
     <script type="text/javascript">
       function datuakbidali(){
