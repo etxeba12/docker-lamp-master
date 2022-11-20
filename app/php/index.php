@@ -48,7 +48,7 @@
       echo'
           <script> 
               window.alert("izen edo pasahitza txarto sartu duzu")
-              window.location = "../index.html";
+              window.location = "../index.php";
           </script>
       ';
     } else{

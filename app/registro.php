@@ -6,7 +6,7 @@
     <link rel='stylesheet' href='CSS/registro.css'>
     <script type="text/javascript">
       function datuakEgiaztatu(){
-        if(izenaEgiaztatu() && nanEgiaztatu() && telefonoaEgiaztatu() && emailEgiaztatu()){
+        if(izenaEgiaztatu() && nanEgiaztatu() && telefonoaEgiaztatu() && emailEgiaztatu() && pasahitzaEgiaztatu()){
           document.formularioregistro.submit();
         }else{
           window.alert("datuak txarto sartu dituzu");
@@ -63,6 +63,26 @@
         }
       }
 
+      function pasahitzaEgiaztatu(){
+        let pasahitza = document.formularioregistro.pasahitza.value;
+        if(pasahitza.length >= 8){
+
+
+          if(pasahitza.match(/([a-zA-Z])/) && pasahitza.match(/([a-z].[A-Z])|([A-Z].[a-z])/) && pasahitza.match(/([0-9])/) && pasahitza.match(/([!,%,&,@,#,$,^,*,?,_,~])/)){
+            return true;
+          }
+          else{
+            window.alert("8 karaktere edo gehiago izan behar ditu, letra larriak, zenbakiak eta karaktere espezialak erabili behar dira");
+            return false;
+          }
+        }
+        else{
+          window.alert("Pasahitza hau oso motza da (8 karaktere edo gehiago izan behar ditu, gainera letra larriak , zenbakiak eta karaktere espezialak erabili behar dira)");
+          return false;
+        }
+
+      }
+
     </script>
   </head>
   <body>
@@ -80,7 +100,7 @@
             <input class="bete" type="password" placeholder="Pasahitza" name="pasahitza"> <br>
             <input class="botoia" type="button" value="Gorde" onclick="datuakEgiaztatu()"> 
             <input class="botoia" type="reset" value="Ezabatu">
-            <p><a  href="index.html">Jadanik erregistratuta zaude?</a></p>
+            <p><a  href="index.php">Jadanik erregistratuta zaude?</a></p>
         </div>
       </form>
     </div> '
