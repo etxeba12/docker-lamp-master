@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <meta http-equil="Content-Security-Policy" content=" 'self'  'unsafe-inline'">
     <link rel='stylesheet' href='CSS/login.css'>
     <script type="text/javascript">
       function datuakKonprobatu(){
@@ -14,6 +15,7 @@
     <?php session_start();
       $_SESSION['token'] = bin2hex(random_bytes(24));
       $_SESSION['saioa'] = 0;
+      $_SESSION['pasahitzaTxarto'] = 0;
       echo '<div class="laukia">
           <form action="php/index.php" method="post" style="text-align:center" name="formulariologin">
             <div class="login"><h1>LOGIN</h1></div>
@@ -21,10 +23,10 @@
                 <input class="bete" type="text" placeholder="izena abizenak" name="izen_abizenak">
                 <input class="bete" type="password" placeholder="Pasahitza" name="pasahitza">
                 <input class="botoia" type="button" value="Sartu" onclick="datuakKonprobatu()">
-                <p><a  href="registro.html">Oraindik ez zaude erregistratua?</a></p>
+                <p><a  href="registro.php">Oraindik ez zaude erregistratua?</a></p>
             </div>
           </form>
-        </div> '
+        </div> ';
       ?> 
   </body>
 </html>

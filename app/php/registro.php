@@ -18,11 +18,13 @@
     $pasahitza = $_POST['pasahitza'];
     $jaiotze_data = $_POST['jaiotze_data'];
     $email= $_POST['email'];
-    
+    $sal = md5("4hJUd5sPP97hT");
+    $pasahitzaZifratuta = md5($pasahitza.$sal);
+  
     if (!hash_equals($_SESSION['token'], $_POST['token'])) {
       //prepare and bind
       $stmt = $conn->prepare("INSERT INTO erabiltzaileak(izen_abizenak,nan,telefonoa,email,jaiotze_data,pasahitza) VALUES (?,?,?,?,?,?)");
-      $stmt -> bind_param("ssisss",$izen_abizenak,$nan,$telefonoa,$email,$jaiotze_data,$pasahitza);
+      $stmt -> bind_param("ssisss",$izen_abizenak,$nan,$telefonoa,$email,$jaiotze_data,$pasahitzaZifratuta);
 
       //execute
       $ejecutar = $stmt->execute();

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Erregistroa</title>
+    <meta http-equil="Content-Security-Policy" content=" 'self'  'unsafe-inline'">
     <link rel='stylesheet' href='CSS/registro.css'>
     <script type="text/javascript">
       function datuakEgiaztatu(){
@@ -62,13 +63,12 @@
           return false;
         }
       }
-
       function pasahitzaEgiaztatu(){
         let pasahitza = document.formularioregistro.pasahitza.value;
         if(pasahitza.length >= 8){
+          
 
-
-          if(pasahitza.match(/([a-zA-Z])/) && pasahitza.match(/([a-z].[A-Z])|([A-Z].[a-z])/) && pasahitza.match(/([0-9])/) && pasahitza.match(/([!,%,&,@,#,$,^,*,?,_,~])/)){
+          if(pasahitza.match(/([a-zA-Z])/) && pasahitza.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/) && pasahitza.match(/([0-9])/) && pasahitza.match(/([!,%,&,@,#,$,^,*,?,_,~])/)){
             return true;
           }
           else{
@@ -81,6 +81,7 @@
           return false;
         }
 
+
       }
 
     </script>
@@ -91,7 +92,7 @@
       echo '<div class="laukia">
         <form action="php/registro.php" method="post" style="text-align:center" name="formularioregistro">
           <div class="erregistroa"><h1>Erregistroa</h1></div>
-            <input type="hidden" name="token" value="'$_SESSION['token']'" />
+            <input type="hidden" name="token" value="'.$_SESSION['token'].'" />
             <input class="bete" type="text" placeholder="Izen abizenak" name="izen_abizenak">
             <input class="bete" type="text" placeholder="NAN" name="nan">
             <input class="bete" type="text" placeholder="Telefonoa" name="telefonoa"> <br>
@@ -100,7 +101,7 @@
             <input class="bete" type="password" placeholder="Pasahitza" name="pasahitza"> <br>
             <input class="botoia" type="button" value="Gorde" onclick="datuakEgiaztatu()"> 
             <input class="botoia" type="reset" value="Ezabatu">
-            <p><a  href="index.php">Jadanik erregistratuta zaude?</a></p>
+            <p><a  href="index.html">Jadanik erregistratuta zaude?</a></p>
         </div>
       </form>
     </div> '

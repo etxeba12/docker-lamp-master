@@ -2,6 +2,24 @@
     if($_SESSION['saioa']!=1){
       header("Location:http://localhost:81/index.php");
     }
+    $inactivo = 10;
+ 
+  if(isset($_SESSION['denbora']) ) {
+  $vida_session = time() - $_SESSION['tiempo'];
+      if($vida_session > $inactivo)
+      {
+        session_destroy();
+        
+        echo'
+          <script> 
+            window.alert("Saioa berrabiarazi behar duzu")
+            window.location= "index.php"
+          </script>
+        ';
+        
+        
+      }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="">

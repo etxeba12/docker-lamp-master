@@ -2,6 +2,26 @@
   if($_SESSION['saioa']!=1){
     header("Location:http://localhost:81/index.php");
   }
+  $inaktibo = 60;
+ 
+  if(isset($_SESSION['denbora']) ) {
+  $sessio_bizitza = time() - $_SESSION['tiempo'];
+      if($sessio_bizitza > $inaktibo)
+      {
+        session_destroy();
+        
+        echo'
+          <script> 
+            window.alert("Saioa berrabiarazi behar duzu")
+            window.location= "index.php"
+          </script>
+        ';
+        
+        
+      }
+  }
+ 
+  $_SESSION['denbora'] = time();
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -57,6 +77,7 @@
         }   
         echo'</div> <br> <input class="botoia" type="button" value="GORDE" onclick="datuakbidali()"> 
         </form>';       
+
         mysqli_close($conn);
         
       ?> 
