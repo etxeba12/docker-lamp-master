@@ -2,11 +2,11 @@
   if($_SESSION['saioa']!=1){
     header("Location:http://localhost:81/index.php");
   }
-  $inaktibo = 60;
+  $inactivo = 480;
  
   if(isset($_SESSION['denbora']) ) {
-  $sessio_bizitza = time() - $_SESSION['tiempo'];
-      if($sessio_bizitza > $inaktibo)
+  $vida_session = time() - $_SESSION['denbora'];
+      if($vida_session > $inactivo)
       {
         session_destroy();
         

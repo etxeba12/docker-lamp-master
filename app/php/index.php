@@ -26,15 +26,8 @@
 
     //execute
     $stmt->execute();
-    $txarto = $_SESSION['pasahitzaTxarto'];
-    if($txarto >= 5){
-      echo'
-      <script> 
-          window.alert("Erabiltzaile bloqueatuta")
-          window.location = "../index.php";
-      </script>
-  ';
-    }
+    
+    
     //emaitzatik aldagaiak hartu
     $result = $stmt->get_result();
     $row = $result->fetch_assoc(); 
@@ -48,6 +41,7 @@
     $pasahitza = $row["pasahitza"];
     $balorazioa = $row["Balorazioa"];
     
+    
     $_SESSION['izen_abizenak'] = $izen_abizenak;
     $_SESSION['nan'] = $nan;
     $_SESSION['telefonoa'] = $telefonoa;
@@ -55,19 +49,33 @@
     $_SESSION['email'] = $email;
     $_SESSION['pasahitza'] = $pasahitza;
     $_SESSION['balorazioa'] = $balorazioa;
-  
+
+
+    $konprobatu_Erabiltzaile= $conn->prepare( "SELECT * FROM  erabiltzaileak WHERE izen_abizenak=? ");
+    $konprobatu_Erabiltzaile -> bind_param("s", $izen_abizena2);
+    $konprobatu_Erabiltzaile -> execute();
+
+    $result = $konprobatu_Erabiltzaile->get_result();
+    $row = $result->fetch_assoc(); 
+    $blokeatuta = $row["blokeatuta"];
+
+    if($blokeatuta >= 5){
+      echo'
+      <script> 
+           window.alert(" Bloqueatuta ")
+          window.location = "../index.php";
+      </script>
+        ';
+    }
     
     if (is_null($izen_abizenak) ) {
       
-      $konprobatu_Erabiltzaile= $conn->prepare( "SELECT * FROM  erabiltzaileak WHERE izen_abizenak=? ");
-      $konprobatu_Erabiltzaile -> bind_param("s", $izen_abizena2);
-      $konprobatu_Erabiltzaile -> execute();
-      $konprobatu_Erabiltzaile -> close(); 
+      
       
       if(!(is_null($konprobatu_Erabiltzaile))){
       
         $_SESSION['pasahitzaTxarto'] = $_SESSION['pasahitzaTxarto'] + 1;
-
+        $txarto = $_SESSION['pasahitzaTxarto'];
 
         $stmt2 = $conn -> prepare("UPDATE erabiltzaileak SET blokeatuta=? WHERE izen_abizenak=?");
         $stmt2 -> bind_param('is',$txarto,$izen_abizena2);

@@ -12,10 +12,11 @@
     </script>
   </head>
   <body>
-    <?php session_start();
-      $_SESSION['token'] = bin2hex(random_bytes(24));
+    <?php session_start(); 
       $_SESSION['saioa'] = 0;
       $_SESSION['pasahitzaTxarto'] = 0;
+      $_SESSION['token'] = bin2hex(random_bytes(24));
+     
       echo '<div class="laukia">
           <form action="php/index.php" method="post" style="text-align:center" name="formulariologin">
             <div class="login"><h1>LOGIN</h1></div>
@@ -23,7 +24,7 @@
                 <input class="bete" type="text" placeholder="izena" name="izen_abizenak">
                 <input class="bete" type="password" placeholder="Pasahitza" name="pasahitza">
                 <input class="botoia" type="button" value="Sartu" onclick="datuakKonprobatu()">
-                <p><a  href="registro.php">bOraindik ez zaude erregistratua?</a></p>
+                <p><a  href="registro.php">Oraindik ez zaude erregistratua?</a></p>
             </div>
           </form>
         </div> ';

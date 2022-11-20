@@ -57,11 +57,13 @@
       }
       function emailEgiaztatu(){
         let emaila = document.formularioregistro.email.value;
-        if (/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/.test(emaila)){
+    
+        if (/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/.test(emaila)){
           return true;
         } else {
           return false;
         }
+        
       }
       function pasahitzaEgiaztatu(){
         let pasahitza = document.formularioregistro.pasahitza.value;

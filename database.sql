@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 16-10-2022 a las 12:06:27
+-- Tiempo de generación: 20-11-2022 a las 20:30:07
 -- Versión del servidor: 10.8.2-MariaDB-1:10.8.2+maria~focal
--- Versión de PHP: 8.0.19
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,17 +33,18 @@ CREATE TABLE `erabiltzaileak` (
   `telefonoa` int(9) NOT NULL,
   `email` varchar(80) NOT NULL,
   `jaiotze_data` date NOT NULL,
-  `pasahitza` varchar(3000) NOT NULL
+  `pasahitza` varchar(3000) NOT NULL,
+  `blokeatuta` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `erabiltzaileak`
 --
 
-INSERT INTO `erabiltzaileak` (`izen_abizenak`, `nan`, `telefonoa`, `email`, `jaiotze_data`, `pasahitza`) VALUES
-('Markel', '20975528B', 667261029, 'markel@email.com', '2001-09-04', '234567'),
-('Imanol', '45951258H', 666725812, 'imanol@email.com', '2001-08-29', '123456'),
-('Iker', '78995188D', 688651321, 'iker@gmail.com', '2001-04-28', '123456');
+INSERT INTO `erabiltzaileak` (`izen_abizenak`, `nan`, `telefonoa`, `email`, `jaiotze_data`, `pasahitza`, `blokeatuta`) VALUES
+('markel', '20975528B', 678564534, 'paco@gmail.com', '2002-02-12', '2fdcf00eb4c001c84138a5d8013345b9', 0),
+('paco', '45753212w', 678453425, 'paco@gmail.com', '2001-11-12', '139bb724389fd85d84d081301e9620a7', 6),
+('imanol', '45951258h', 678464352, 'paco.garcia@gmail.com', '2001-11-12', '31d14172bc1cf048c6dab1092e3d9915', 0);
 
 -- --------------------------------------------------------
 
@@ -61,12 +62,12 @@ CREATE TABLE `erosketa` (
 --
 
 INSERT INTO `erosketa` (`erabiltzaileNan`, `jokoId`) VALUES
-('45951258H', 3),
-('45951258H', 11),
-('78995188D', 2),
-('78995188D', 3),
-('78995188D', 6),
-('78995188D', 7);
+('45951258h', 1),
+('45951258h', 2),
+('45951258h', 3),
+('45951258h', 5),
+('45951258h', 6),
+('45951258h', 8);
 
 -- --------------------------------------------------------
 
